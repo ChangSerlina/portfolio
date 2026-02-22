@@ -2,8 +2,8 @@
     <div class="flex container">
         <div class="col-6 col-lg-12">
             <h3>Hi, I am</h3>
-            <h2 id="name">serlina</h2>
-            <p>A backend engineer mainly working with PHP and Laravel. I have experience with Linux, Docker, Nginx, and MySQL, and I'm familiar with GitLab CI/CD and SonarQube for automation and code quality management.</p>
+            <h2 id="name">Serlina</h2>
+            <p>A backend engineer mainly working with PHP and Laravel. I have experience with Linux, Docker, Nginx, Apache, and MySQL, and I'm familiar with GitLab CI/CD and SonarQube for automation and code quality management.</p>
             <a href="http://" target="_blank" rel="noopener noreferrer"><input type="button" value="schedule free consultation" /></a>
         </div>
         <div class="col-5 col-lg-12" id="skill">

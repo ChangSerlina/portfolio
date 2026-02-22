@@ -1,7 +1,7 @@
 <template>
     <div class="flex nav">
         <!-- 左邊LOGO -->
-        <div class="col-2 logo">serlina</div>
+        <div class="col-2 logo">Serlina</div>
 
         <!-- 大螢幕選單 -->
         <div class="col-8 menu" v-if="!isMobile">
