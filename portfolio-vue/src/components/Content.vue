@@ -1,10 +1,10 @@
 <template>
     <div class="flex container">
-        <div class="col-6 col-lg-12">
+        <div class="col-6 col-lg-12" id="intro">
             <h3>Hi, I am</h3>
             <h2 id="name">Serlina</h2>
             <p>A backend engineer mainly working with PHP and Laravel. I have experience with Linux, Docker, Nginx, Apache, and MySQL, and I'm familiar with GitLab CI/CD and SonarQube for automation and code quality management.</p>
-            <a href="http://" target="_blank" rel="noopener noreferrer"><input type="button" value="schedule free consultation" /></a>
+            <button type="button" class="consultation-btn" @click="showForm = true">schedule free consultation</button>
         </div>
         <div class="col-5 col-lg-12" id="skill">
             <div class="flex" id="skills">
@@ -15,9 +15,17 @@
             <div class="img" id="img2"></div>
         </div>
     </div>
+    
+    <!-- 諮詢表單模態框 -->
+    <ConsultationForm :isOpen="showForm" @close="showForm = false" />
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import ConsultationForm from './ConsultationForm.vue'
+
+const showForm = ref(false)
+</script>
 
 <style>
 .container {
@@ -32,6 +40,31 @@
 
 #name {
     margin-top: -16px;
+}
+
+#intro {
+    margin-bottom: 4rem;
+}
+
+.consultation-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.consultation-btn:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+}
+
+.consultation-btn:active {
+    transform: translateY(0);
 }
 
 #skill {
