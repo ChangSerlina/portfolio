@@ -27,3 +27,5 @@ npm run dev
 ```sh
 npm run build
 ```
+
+- 打包後將dist目錄底下的所有資料，放入部署的public目錄下

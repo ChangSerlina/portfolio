@@ -1,12 +1,12 @@
 <template>
     <div class="flex nav">
         <!-- 左邊LOGO -->
-        <div class="col-2 logo">Serlina</div>
+        <div class="col-2 logo" @click="selectTab('Home')">Serlina</div>
 
         <!-- 大螢幕選單 -->
         <div class="col-8 menu" v-if="!isMobile">
             <ul class="tabs">
-                <li v-for="tab in tabs" :key="tab" :class="{ active: activeTab === tab }" @click="activeTab = tab">
+                <li v-for="tab in props.tabs" :key="tab" :class="{ active: props.activeTab === tab }" @click="selectTab(tab)">
                     {{ tab }}
                 </li>
             </ul>
@@ -24,7 +24,7 @@
                 @click="toggleMenu" />
             <!-- 下拉選單 -->
             <ul v-if="showMenu" class="dropdown">
-                <li v-for="tab in tabs" :key="tab" :class="{ active: activeTab === tab }" @click="activeTab = tab">
+                <li v-for="tab in props.tabs" :key="tab" :class="{ active: props.activeTab === tab }" @click="selectTab(tab)">
                     {{ tab }}
                 </li>
                 <img src="https://img.icons8.com/?size=25&id=132&format=png&color=000000" alt="搜尋" />
@@ -35,16 +35,23 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+const props = defineProps({
+    tabs: {
+        type: Array,
+        default: () => ['Home', 'Projects'],
+    },
+    activeTab: {
+        type: String,
+        default: 'Home',
+    },
+});
+
+const emit = defineEmits(['tab-change']);
 
 const isMobile = ref(window.innerWidth < 768);
 const showMenu = ref(false);
-
-// 頁籤列表
-const tabs = ["Home", "About Me", "Projects", "Contact Me"]
-
-// 當前 active 的頁籤，預設 Home
-const activeTab = ref("Home")
 
 const checkScreen = () => {
     isMobile.value = window.innerWidth < 768;
@@ -55,12 +62,17 @@ const toggleMenu = () => {
     showMenu.value = !showMenu.value;
 };
 
+const selectTab = (tab) => {
+    emit('tab-change', tab);
+    showMenu.value = false;
+};
+
 onMounted(() => {
-    window.addEventListener("resize", checkScreen);
+    window.addEventListener('resize', checkScreen);
 });
 
 onBeforeUnmount(() => {
-    window.removeEventListener("resize", checkScreen);
+    window.removeEventListener('resize', checkScreen);
 });
 </script>
 
@@ -102,7 +114,7 @@ onBeforeUnmount(() => {
 }
 
 /* 小螢幕隱藏大選單 */
-@media (max-width: 768px) {
+@media (max-width: 425px) {
     .menu {
         display: none;
     }

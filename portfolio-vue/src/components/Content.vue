@@ -32,6 +32,9 @@ const showForm = ref(false)
     padding-top: 6rem;
     position: absolute;
     align-items: center;
+    @media (min-width: 768px) {
+        height: 85vh;
+    }
 }
 
 .container p {
@@ -71,6 +74,9 @@ const showForm = ref(false)
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: 1024px) {
+        margin-bottom: 1rem;
+    }
 }
 
 #skills {
@@ -114,6 +120,24 @@ const showForm = ref(false)
 
 /* 中螢幕 */
 @media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        padding-top: 3rem;
+        flex-flow: column;
+    }
+
+    #img2 {
+        height: 13rem;
+        width: 17rem;
+        border-radius: 130px;
+    }
+
+    #skills p {
+        background-image: url('https://img.icons8.com/?size=120&id=11871&format=png&color=000000');
+    }
+}
+/* 小螢幕 */
+@media (max-width: 425px) {
     .container {
         width: 80%;
         padding-top: 0.5rem;
