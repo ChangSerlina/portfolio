@@ -5,6 +5,7 @@
             <h2 id="name">Serlina</h2>
             <p>A backend engineer mainly working with PHP and Laravel. I have experience with Linux, Docker, Nginx, Apache, and MySQL, and I'm familiar with GitLab CI/CD and SonarQube for automation and code quality management.</p>
             <button type="button" class="consultation-btn" @click="showForm = true">schedule free consultation</button>
+            or <span class="highlight">Email me at <a href="mailto:serlina0818@yahoo.com.tw">serlina0818@yahoo.com.tw</a></span>
         </div>
         <div class="col-5 col-lg-12" id="skill">
             <div class="flex" id="skills">
@@ -118,6 +119,13 @@ const showForm = ref(false)
     border-radius: 173px;
 }
 
+.highlight {
+  text-decoration: none;
+  background-image: linear-gradient(#ffeb3b, #ffeb3b);
+  background-repeat: no-repeat;
+  background-size: 100% 25%;
+  background-position: 0 100%;
+}
 /* 中螢幕 */
 @media (max-width: 1024px) {
     .container {
